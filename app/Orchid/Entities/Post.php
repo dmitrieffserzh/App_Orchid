@@ -2,7 +2,7 @@
 
 declare(strict_types=1);
 
-namespace App\Orchid\_Entities;
+namespace App\Orchid\Entities;
 
 use Orchid\Screen\TD;
 use Orchid\Screen\Field;
@@ -27,44 +27,23 @@ use Orchid\Press\Http\Filters\SearchFilter;
 use Orchid\Press\Http\Filters\StatusFilter;
 use Orchid\Press\Http\Filters\CreatedFilter;
 
-class Settings extends Many
+class Post extends Many
 {
-    /**
-     * @var string
-     */
-    public $name = 'Настройки';
 
-    /**
-     * @var string
-     */
+    public $name = 'Новости';
+
     public $description = 'Demonstrative post';
 
-    /**
-     * @var string
-     */
-    public $slug = 'settings';
+    public $slug = 'news';
 
-    /**
-     * Slug url /news/{name}.
-     *
-     * @var string
-     */
     public $slugFields = 'name';
 
-    /**
-     * Menu group name.
-     *
-     * @var null
-     */
-    public $groupname = 'Система';
+    public $icon = 'icon-folder';
 
-    public $icon = 'icon-settings';
+    public $sort = 10;
 
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $model
-     *
-     * @return \Illuminate\Database\Eloquent\Model
-     */
+    public $groupname = 'Контент';
+
     public function create(Model $model) : Model
     {
         return $model->load(['attachment', 'tags', 'taxonomies'])
@@ -73,9 +52,7 @@ class Settings extends Many
             })->toArray());
     }
 
-    /**
-     * @param \Illuminate\Database\Eloquent\Model $model
-     */
+
     public function save(Model $model)
     {
         $model->save();
@@ -85,11 +62,7 @@ class Settings extends Many
         $model->attachment()->syncWithoutDetaching(request('attachment', []));
     }
 
-    /**
-     * Rules Validation.
-     *
-     * @return array
-     */
+
     public function rules(): array
     {
         return [
@@ -99,11 +72,7 @@ class Settings extends Many
         ];
     }
 
-    /**
-     * HTTP data filters.
-     *
-     * @return array
-     */
+
     public function filters(): array
     {
         return [
@@ -113,11 +82,7 @@ class Settings extends Many
         ];
     }
 
-    /**
-     * @throws \Throwable|\Orchid\Screen\Exceptions\TypeException
-     *
-     * @return array
-     */
+
     public function fields(): array
     {
         return [
@@ -192,12 +157,7 @@ class Settings extends Many
         ];
     }
 
-    /**
-     * @throws \Orchid\Screen\Exceptions\TypeException
-     * @throws \Throwable
-     *
-     * @return array
-     */
+
     public function main(): array
     {
         return array_merge(parent::main(), [
@@ -220,11 +180,6 @@ class Settings extends Many
         ]);
     }
 
-    /**
-     * @throws \Throwable
-     *
-     * @return array
-     */
     public function options(): array
     {
         return [
@@ -240,9 +195,7 @@ class Settings extends Many
         ];
     }
 
-    /**
-     * Grid View for post type.
-     */
+
     public function grid(): array
     {
         return [

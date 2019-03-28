@@ -1,7 +1,7 @@
 <?php
 
 declare(strict_types=1);
-use App\Orchid\_Entities\Blog;
+use App\Orchid\Entities\Blog;
 use App\Orchid\Screens\ExampleScreen;
 use App\Orchid\Screens\PlatformScreen;
 use App\Orchid\Screens\Page\PageEditScreen;

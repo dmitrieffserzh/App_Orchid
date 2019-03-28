@@ -106,30 +106,34 @@ class MainMenuComposer
                 ItemMenu::label('Панель управления')
                     ->icon('icon-home')
                     ->route('platform.main')
+                    ->sort(0)
             )
             ->add(Menu::MAIN,
                 ItemMenu::label('Страницы')
                     ->icon('icon-doc')
                     ->route('platform.pages')
-                    ->groupName('Контент')
-                    ->sort(1000)
+                    //->groupName('Контент')
+                    ->sort(15)
             )
             ->add(Menu::MAIN,
                 ItemMenu::label('Пользователи')
                     ->icon('icon-user')
                     ->route('platform.systems.users')
                     ->groupName('Пользователи и группы')
+                    ->sort(20)
             )
             ->add(Menu::MAIN,
                 ItemMenu::label('Группы доступа')
                     ->icon('icon-shield')
                     ->route('platform.systems.roles')
+                    ->sort(30)
             )
             ->add(Menu::MAIN,
                 ItemMenu::label('Параметры системы')
                     ->icon('icon-settings')
                     ->route('platform.settings')
                     ->groupName('Система')
+                    ->sort(40)
             );
 
     }

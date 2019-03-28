@@ -11,26 +11,12 @@ use Orchid\Platform\Dashboard;
 
 class PlatformScreen extends Screen
 {
-    /**
-     * Display header name.
-     *
-     * @var string
-     */
+
     public $name = 'Dashboard';
 
-    /**
-     * Display header description.
-     *
-     * @var string
-     */
     public $description = 'Welcome';
 
-    /**
-     * Query data.
-     *
-     *
-     * @return array
-     */
+
     public function query(): array
     {
         return [
@@ -38,29 +24,15 @@ class PlatformScreen extends Screen
         ];
     }
 
-    /**
-     * Button commands.
-     *
-     * @return array
-     */
     public function commandBar(): array
     {
         return [
-            Link::name('Website')
-            ->link('http://orchid.software')
+            Link::name('Перейти на сайт')
+            ->link('/')
             ->icon('icon-globe-alt'),
-
-            Link::name('GitHub')
-            ->link('https://github.com/orchidsoftware/platform')
-            ->icon('icon-social-github'),
         ];
     }
 
-    /**
-     * Views.
-     *
-     * @return array
-     */
     public function layout(): array
     {
         return [
